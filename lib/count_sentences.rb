@@ -15,10 +15,6 @@ class String
   end
 
   def count_sentences
-    sentences = []
-    sentences << self.split(".")
-    sentences << self.split("?")
-    sentences << self.split("!")
-    sentences.count
+    self.split(/\.|\?|\!/).delete_if {|word| word.size < 2}.size
   end
 end
